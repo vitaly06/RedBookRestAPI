@@ -1,0 +1,45 @@
+package ru.talisman.RedBook.Models;
+
+import org.springframework.web.multipart.MultipartFile;
+import ru.talisman.RedBook.DAO.ApplicationDAO;
+
+public class Application {
+    private int id;
+    private String header;
+    private MultipartFile photo;
+    private String description;
+
+    public Application(){}
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getHeader() {
+        return header;
+    }
+
+    public void setHeader(String header) {
+        this.header = header;
+    }
+
+    public MultipartFile getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(MultipartFile photo) {
+        this.photo = photo;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+}
