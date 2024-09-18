@@ -34,7 +34,7 @@ public class MainController {
     // Отправка заявки
     @PostMapping("/addApplication")
     public void addApplication(HttpServletRequest request,
-                               @RequestParam("header") String header,
+                               @RequestParam(value = "header", required = false) String header,
                                @RequestParam("photo") MultipartFile photo,
                                @RequestParam("description") String description,
                                @RequestParam("area") int area) throws IOException {
