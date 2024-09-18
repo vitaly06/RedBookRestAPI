@@ -6,7 +6,7 @@ import ru.talisman.RedBook.DAO.ApplicationDAO;
 public class Application {
     private int id;
     private String header;
-    private MultipartFile photo;
+    private byte[] photo;
     private String description;
     private int area;
     private String isAccepted;
@@ -29,11 +29,11 @@ public class Application {
         this.header = header;
     }
 
-    public MultipartFile getPhoto() {
+    public byte[] getPhoto() {
         return photo;
     }
 
-    public void setPhoto(MultipartFile photo) {
+    public void setPhoto(byte[] photo) {
         this.photo = photo;
     }
 

@@ -43,20 +43,21 @@ public class MainController {
                                @RequestParam("title") String header,
                                @RequestParam("image") MultipartFile photo,
                                @RequestParam("description") String description,
-                               @RequestParam("selectedImage") int area){
+                               @RequestParam("selectedImage") int area) throws IOException {
         Application application = new Application();
         application.setIsAccepted("false");
         application.setHeader(header);
-        application.setPhoto(photo);
+        byte[] imageData = photo.getBytes();
+        application.setPhoto(imageData);
         application.setDescription(description);
         application.setArea(area);
-        String fileName = StringUtils.cleanPath(Objects.requireNonNull(application.getPhoto().getOriginalFilename()));
+        /*String fileName = StringUtils.cleanPath(Objects.requireNonNull(application.getPhoto().getOriginalFilename()));
         try {
             Path path = Paths.get("./src/main/resources/static/data/" + fileName);
             Files.copy(application.getPhoto().getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
         } catch (IOException e) {
             System.out.println("exeption: " + e.getMessage());
-        }
+        }*/
         applicationDAO.saveApplication(application);
     }
 
