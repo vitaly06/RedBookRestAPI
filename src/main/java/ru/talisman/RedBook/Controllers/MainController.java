@@ -32,6 +32,7 @@ public class MainController {
         return admin;
     }
     // Отправка заявки
+    @CrossOrigin
     @PostMapping("/addApplication")
     public void addApplication(HttpServletRequest request,
                                @RequestParam(value = "header", required = false) String header,
