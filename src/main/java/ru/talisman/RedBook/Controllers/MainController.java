@@ -49,6 +49,7 @@ public class MainController {
         application.setHeader(header);
         application.setPhoto(photo);
         application.setDescription(description);
+        application.setArea(area);
         String fileName = StringUtils.cleanPath(Objects.requireNonNull(application.getPhoto().getOriginalFilename()));
         try {
             Path path = Paths.get("./src/main/resources/static/data/" + fileName);

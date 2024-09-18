@@ -24,7 +24,7 @@ public class ApplicationMapper implements RowMapper<Application> {
             }
             try (FileInputStream input = new FileInputStream(file)) {
                 application.setPhoto(new MockMultipartFile("file", file.getName(),
-                        "multipart/form-data", IOUtils.toByteArray(input)));
+                        "text/plain", IOUtils.toByteArray(input)));
             } catch (IOException e) {
                 // Обработка исключений
                 throw new IOException("Ошибка при чтении файла: " + file.getAbsolutePath(), e);
