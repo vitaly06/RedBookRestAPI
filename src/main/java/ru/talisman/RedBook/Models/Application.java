@@ -8,6 +8,8 @@ public class Application {
     private String header;
     private MultipartFile photo;
     private String description;
+    private int area;
+    private String isAccepted;
 
     public Application(){}
 
@@ -41,5 +43,21 @@ public class Application {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getIsAccepted() {
+        return isAccepted;
+    }
+
+    public void setIsAccepted(String isAccepted) {
+        this.isAccepted = isAccepted;
+    }
+
+    public int getArea() {
+        return area;
+    }
+
+    public void setArea(int area) {
+        this.area = area;
     }
 }

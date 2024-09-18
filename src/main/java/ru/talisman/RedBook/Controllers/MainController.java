@@ -40,10 +40,12 @@ public class MainController {
     // Отправка заявки
     @PostMapping("/addApplication")
     public void addApplication(HttpServletRequest request,
-                               @RequestParam("header") String header,
-                               @RequestPart("photo") MultipartFile photo,
-                               @RequestParam("description") String description){
+                               @RequestParam("title") String header,
+                               @RequestParam("image") MultipartFile photo,
+                               @RequestParam("description") String description,
+                               @RequestParam("selectedImage") int area){
         Application application = new Application();
+        application.setIsAccepted("false");
         application.setHeader(header);
         application.setPhoto(photo);
         application.setDescription(description);
@@ -59,8 +61,12 @@ public class MainController {
 
     @GetMapping("/getAllApplications")
     public List<Application> getAllApplications(){
-        List<Application> applications = applicationDAO.getApplications();
-        return applications;
+            return applicationDAO.getApplications();
+    }
+
+    @GetMapping("/getApplication/{id}")
+    public Application getAllApplication(@PathVariable int id){
+        return applicationDAO.getApplication(id);
     }
 
     @ExceptionHandler

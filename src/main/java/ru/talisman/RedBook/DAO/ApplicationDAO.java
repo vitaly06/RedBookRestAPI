@@ -28,7 +28,10 @@ public class ApplicationDAO {
     }
 
     public List<Application> getApplications() {
-        assert jdbcTemplate != null;
         return jdbcTemplate.query("SELECT * FROM applications", new ApplicationMapper());
+    }
+    public Application getApplication(int id) {
+        return jdbcTemplate.query("SELECT * FROM applications WHERE id = ?", new Object[]{id}, new ApplicationMapper())
+                .stream().findAny().orElse(null);
     }
 }
