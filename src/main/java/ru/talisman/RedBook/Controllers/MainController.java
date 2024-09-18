@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.util.List;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class MainController {
     @Autowired
     AdminDAO adminDAO;
@@ -32,7 +32,7 @@ public class MainController {
         return admin;
     }
     // Отправка заявки
-    @CrossOrigin
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PostMapping("/addApplication")
     public void addApplication(HttpServletRequest request,
                                @RequestParam(value = "header", required = false) String header,

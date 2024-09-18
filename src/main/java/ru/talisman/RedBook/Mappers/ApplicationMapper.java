@@ -2,12 +2,14 @@ package ru.talisman.RedBook.Mappers;
 
 
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import ru.talisman.RedBook.Models.Application;
 
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class ApplicationMapper implements RowMapper<Application> {
     @Override
     public Application mapRow(ResultSet resultSet, int i) throws SQLException {

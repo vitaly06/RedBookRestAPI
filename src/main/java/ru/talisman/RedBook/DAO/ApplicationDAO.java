@@ -3,12 +3,14 @@ package ru.talisman.RedBook.DAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import ru.talisman.RedBook.Mappers.ApplicationMapper;
 import ru.talisman.RedBook.Models.Application;
 
 import java.util.List;
 
 @Component
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class ApplicationDAO {
     private final JdbcTemplate jdbcTemplate;
 
