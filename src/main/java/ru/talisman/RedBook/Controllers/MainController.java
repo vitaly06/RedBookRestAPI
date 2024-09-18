@@ -35,10 +35,10 @@ public class MainController {
     @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PostMapping("/addApplication")
     public void addApplication(HttpServletRequest request,
-                               @RequestParam(value = "header", required = false) String header,
-                               @RequestParam("photo") MultipartFile photo,
-                               @RequestParam("description") String description,
-                               @RequestParam("area") int area) throws IOException {
+                               @RequestPart(value = "header", required = false) String header,
+                               @RequestPart("photo") MultipartFile photo,
+                               @RequestPart("description") String description,
+                               @RequestPart("area") int area) throws IOException {
         Application application = new Application();
         application.setIsAccepted("false");
         application.setHeader(header);
