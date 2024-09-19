@@ -46,7 +46,8 @@ public class MainController {
                                @RequestParam(value = "header", required = false) String header,
                                @RequestPart("photo") MultipartFile photo,
                                @RequestParam("description") String description,
-                               @RequestParam("area") int area) throws IOException {
+                               @RequestParam("area") int area,
+                               @RequestParam("cadastral") String cadastral) throws IOException {
         Application application = new Application();
         application.setIsAccepted("false");
         application.setHeader(header);
@@ -54,6 +55,7 @@ public class MainController {
         application.setPhoto(imageData);
         application.setDescription(description);
         application.setArea(area);
+        application.setCadastral(cadastral);
         applicationDAO.saveApplication(application);
     }
 

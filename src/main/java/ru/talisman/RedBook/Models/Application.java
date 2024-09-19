@@ -10,6 +10,7 @@ public class Application {
     private String description;
     private int area;
     private String isAccepted;
+    private String cadastral;
 
     public Application(){}
 
@@ -59,5 +60,13 @@ public class Application {
 
     public void setArea(int area) {
         this.area = area;
+    }
+
+    public String getCadastral() {
+        return cadastral;
+    }
+
+    public void setCadastral(String cadastral) {
+        this.cadastral = cadastral;
     }
 }

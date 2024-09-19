@@ -25,9 +25,10 @@ public class ApplicationDAO {
 
     public void saveApplication(Application application) {
         assert jdbcTemplate != null;
-        jdbcTemplate.update("INSERT INTO applications(header, photo, description, isAccepted, area) VALUES (?, ?, ?, ?, ?)",
+        jdbcTemplate.update("INSERT INTO applications(header, photo, description, isAccepted, area, cadastral)" +
+                        " VALUES (?, ?, ?, ?, ?, ?)",
                 application.getHeader(), application.getPhoto(), application.getDescription(),
-                application.getIsAccepted(), application.getArea());
+                application.getIsAccepted(), application.getArea(), application.getCadastral());
     }
 
     public List<Application> getApplications() {

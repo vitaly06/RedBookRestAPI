@@ -21,6 +21,7 @@ public class ApplicationMapper implements RowMapper<Application> {
             application.setDescription(resultSet.getString("description"));
             application.setArea(resultSet.getInt("area"));
             application.setIsAccepted("isAccepted");
+            application.setCadastral(resultSet.getString("cadastral"));
         }
         catch (Exception e){
             System.out.println("Exception => " + e.getMessage());
