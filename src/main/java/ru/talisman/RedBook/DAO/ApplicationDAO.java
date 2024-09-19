@@ -41,7 +41,12 @@ public class ApplicationDAO {
                 new Object[]{num}, new ApplicationMapper());
     }
 
-    public void updateApplication(int id) {
+    public void updateApplication(int id, String approve) {
+        if (approve.equals("true")) {
         jdbcTemplate.update("UPDATE applications SET isAccepted = 'true' WHERE id = ?", id);
+        }
+        else if (approve.equals("delete")) {
+            jdbcTemplate.update("DELETE FROM applications WHERE id = ?", id);
+        }
     }
 }

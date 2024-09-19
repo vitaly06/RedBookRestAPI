@@ -72,9 +72,7 @@ public class MainController {
     @PostMapping("/processingApplication")
     public void processingApplication(HttpServletRequest request, @RequestParam("id") int id,
                                       @RequestParam("approval") String approval){
-        if (approval.equals("true")){
-            applicationDAO.updateApplication(id);
-        }
+            applicationDAO.updateApplication(id, approval);
     }
 
     @ExceptionHandler
