@@ -32,6 +32,16 @@ public class ApplicationDAO {
     }
 
     public List<Application> getApplications() {
-        return jdbcTemplate.query("SELECT * FROM applications", new ApplicationMapper());
+        return jdbcTemplate.query("SELECT * FROM applications WHERE isAccepted = 'false'",
+                new ApplicationMapper());
+    }
+
+    public List<Application> getAreaAnimals(int num){
+        return jdbcTemplate.query("SELECT * FROM applications WHERE area = ? AND isAccepted = 'true'",
+                new Object[]{num}, new ApplicationMapper());
+    }
+
+    public void updateApplication(int id) {
+        jdbcTemplate.update("UPDATE applications SET isAccepted = 'true' WHERE id = ?", id);
     }
 }

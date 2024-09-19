@@ -64,6 +64,19 @@ public class MainController {
             return applicationDAO.getApplications();
     }
 
+    @GetMapping("/getArea-{num}")
+    public List<Application> getAreaAnimals(@PathVariable int num){
+        return applicationDAO.getAreaAnimals(num);
+    }
+
+    @PostMapping("/processingApplication")
+    public void processingApplication(HttpServletRequest request, @RequestParam("id") int id,
+                                      @RequestParam("approval") String approval){
+        if (approval.equals("true")){
+            applicationDAO.updateApplication(id);
+        }
+    }
+
     @ExceptionHandler
     private ResponseEntity<AdminErrorResponse> handleException(AdminNotFoundException e){
         AdminErrorResponse response = new AdminErrorResponse(
