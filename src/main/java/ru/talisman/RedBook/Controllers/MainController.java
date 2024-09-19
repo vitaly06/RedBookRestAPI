@@ -26,10 +26,18 @@ public class MainController {
 
     // Вход в панель Админа
     @PostMapping("/loginAdmin")
-    public Admin loginAdmin(HttpServletRequest request,
+    public String loginAdmin(HttpServletRequest request,
         @RequestParam("login") String login, @RequestParam("password") String password) {
-        Admin admin = adminDAO.getAdmin(login, password);
-        return admin;
+        Admin admin = new Admin();
+        try {
+            admin = adminDAO.getAdmin(login, password);
+        } catch (Exception e){
+
+        }
+        if (admin.getLogin() != null) {
+            return "true";
+        }
+        return "false";
     }
     // Отправка заявки
     @CrossOrigin(origins = "*", allowedHeaders = "*")

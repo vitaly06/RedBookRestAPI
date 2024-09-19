@@ -23,6 +23,6 @@ public class AdminDAO {
     public Admin getAdmin(String login, String password) {
         return jdbcTemplate.query("SELECT * FROM admins WHERE login = ? AND password = ?",
                 new Object[]{login, password}, new AdminMapper())
-        .stream().findAny().orElseThrow(AdminNotFoundException::new);
+        .stream().findAny().orElseThrow(null);
     }
 }
